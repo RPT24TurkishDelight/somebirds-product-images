@@ -1,6 +1,7 @@
 const { Image } = require('./index.js');
 const list = require('./s3/s3_listObj.js');
 
+/*
 const modelData = async () => {
   try {
     const firstModel = await Image.bulkCreate([
@@ -28,6 +29,7 @@ const modelData = async () => {
     console.error(err);
   }
 };
+*/
 
 const dummyData = async () => {
   //create 98 dummy models
@@ -35,7 +37,7 @@ const dummyData = async () => {
   for (let i = 3; i <= 100; i++) {
     randomIndex = Math.floor(Math.random() * Math.floor(keys.length));
     let filename = keys[randomIndex];
-    let url = `https://sb-gallery.s3-us-west-1.amazonaws.com/${filename}`;
+    let url = `https://sb-gallery1.s3-us-west-1.amazonaws.com/${filename}`;
 
     try {
       await Image.bulkCreate([
@@ -57,7 +59,7 @@ const dummyData = async () => {
 
 const seedDB = async () => {
   try {
-    await modelData();
+    // await modelData(); // commented out because this was only used for Gabe's presentation
     await dummyData();
   } catch (err) {
     console.log('Failed to seed data');
