@@ -2,6 +2,8 @@ const { Image } = require('./index.js');
 const list = require('./s3/s3_listObj.js');
 
 /*
+// commented out because this was only used for Gabe's presentation
+
 const modelData = async () => {
   try {
     const firstModel = await Image.bulkCreate([

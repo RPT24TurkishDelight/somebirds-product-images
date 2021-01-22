@@ -4,7 +4,8 @@ const sequelize = new Sequelize( 'sbGallery', 'root', '', {
   // host: 'localhost',
   // host: '54.153.5.233',
   port: 3306,
-  dialect: 'mysql'
+  dialect: 'mysql',
+  logging: false
 });
 
 

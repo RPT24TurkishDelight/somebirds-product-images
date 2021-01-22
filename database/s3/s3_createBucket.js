@@ -1,3 +1,5 @@
+//***** NOTE: THIS FILE IS NOT BEING USED CURRENTLY *****
+
 let variables = require('./env.js');
 // Load the AWS SDK for Node.js
 var AWS = require('aws-sdk');
