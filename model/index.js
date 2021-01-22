@@ -2,12 +2,15 @@ const { Image } = require('../database/index.js');
 
 module.exports = {
   post: {
-    shoeImgs: () => {
-
+    shoeImgs: (shoeId, imgUrl) => {
+      return Image.create({
+        modelId: shoeId,
+        imageUrl: imgUrl
+      })
     }
   },
   get: {
-    shoeImgs: async (shoeId) => {
+    shoeImgs: (shoeId) => {
         return Image.findAll({
           where: {
             modelId: shoeId
@@ -26,15 +29,3 @@ module.exports = {
     }
   }
 }
-
-// var getShoeImages = (shoeId) => {
-//   return Image.findAll({
-//     where: {
-//       modelId: shoeId
-//     }
-//   });
-// };
-
-// module.exports = {
-//   getShoeImages
-// };

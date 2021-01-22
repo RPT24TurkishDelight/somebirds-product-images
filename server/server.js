@@ -4,15 +4,28 @@ const controller = require('../controller/index.js');
 const path = require('path');
 const port = 3004;
 
+app.use(express.json())
 app.use(express.static('public'));
 
-
 // Create
-app.post('products/:shoeId/gallery', (req, res) => {
-  let { shoeId } = req.params;
-  let { imgUrl } = req.imgUrl;
-  controller.post
-})
+app.post('/products/:shoeId/gallery', controller.post.productImages)
+
+// Read
+app.get('/products/:shoeId/gallery', controller.get.productImages)
+
+// Update
+// app.put('products/:shoeId/gallery', controller.put.productImages)
+
+// Delete
+// app.delete('products/:shoeId/gallery', controller.delete.productImages)
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
+
+// WHY IS THIS BEING EXPORTED?
+module.exports = app;
+
 
 // Read
 // app.get('/products/:shoeId/gallery', (req, res) => {
@@ -26,24 +39,3 @@ app.post('products/:shoeId/gallery', (req, res) => {
 //       res.sendStatus(404);
 //     });
 // });
-
-// Read
-app.get('/products/:shoeId/gallery', controller.get.productImages)
-
-// Update
-app.put('products/:shoeId/gallery', (req, res) => {
-  let { shoeId } = req.params;
-
-})
-
-// Delete
-app.delete('products/:shoeId/gallery', (req, res) => {
-  let { shoeId } = req.params;
-
-})
-
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
-
-module.exports = app;
