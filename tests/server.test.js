@@ -38,8 +38,3 @@ describe('Test CRUD API calls', () => {
       })
   });
 })
-
-// Avoid jest open handle error
-afterAll(async () => {
-  await new Promise(resolve => setTimeout(() => resolve(), 1000));
-});

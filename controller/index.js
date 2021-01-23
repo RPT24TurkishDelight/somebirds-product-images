@@ -17,6 +17,7 @@ module.exports = {
       let { shoeId } = req.params;
       try {
         const images = await model.shoeImgs.get(shoeId);
+        console.log(images);
         const urls = images.map(image => image.dataValues.imageUrl);
         res.status(200).send(urls);
       } catch(err) {
