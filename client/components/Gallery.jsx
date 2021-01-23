@@ -18,6 +18,7 @@ const Gallery = (props) => {
     let shoeId = props.modelId
     axios.get(`/products/${shoeId}/gallery`)
       .then((images) => {
+        console.log('images from GET:', images)
         setImages(images.data);
         setRender(true);
       })

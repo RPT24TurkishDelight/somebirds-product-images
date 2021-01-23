@@ -1,39 +1,51 @@
 const model = require('../model/index.js');
 
 module.exports = {
-  post: {
-    productImages: async (req, res) => {
+  productImages: {
+    post: async (req, res) => {
       let { shoeId } = req.params;
-      console.log('req:', req.body.imgUrl);
       let { imgUrl } = req.body;
-      console.log(`shoeid ${shoeId}, imgurl ${imgUrl}`)
       try {
-        const imgEntry = await model.post.shoeImgs(shoeId, imgUrl);
-        res.status(200).send(imgEntry);
+        const postResponse = await model.mySql.shoeImgs.post(shoeId, imgUrl);
+        res.status(200).send(postResponse);
       } catch(err) {
-        console.log(`error in model POST ${err}`);
-        res.status(400);
+        console.log(`error in adding entry to DB ${err}`);
+        res.sendStatus(400);
       }
-    }
-  },
-  get: {
-    productImages: async (req, res) => {
+    },
+    get: async (req, res) => {
       let { shoeId } = req.params;
       try {
-        const images = await model.get.shoeImgs(shoeId);
+        const images = await model.mySql.shoeImgs.get(shoeId);
         const urls = images.map(image => image.dataValues.imageUrl);
         res.status(200).send(urls);
       } catch(err) {
-        console.log(`error in model GET ${err}`);
-        res.status(400);
+        console.log(`error in reading entry from DB ${err}`);
+        res.sendStatus(400);
+      }
+    },
+    put: async (req, res) => {
+      let { shoeId } = req.params;
+      let { imgUrl, imgId } = req.body;
+      try {
+        await model.mySql.shoeImgs.put(imgId, imgUrl);
+        res.sendStatus(200);
+      } catch(err) {
+        console.log(`error in updating entry in DB ${err}`);
+        res.sendStatus(400);
+      }
+    },
+    delete: async (req, res) => {
+      let { shoeId } = req.params;
+      let { imgId } = req.body;
+      try {
+        await model.mySql.shoeImgs.delete(imgId);
+        res.sendStatus(200);
+      } catch(err) {
+        console.log(`error in deleting entry in DB ${err}`);
+        res.sendStatus(400);
       }
     }
-  },
-  put: {
-
-  },
-  delete: {
-
   }
 };
 

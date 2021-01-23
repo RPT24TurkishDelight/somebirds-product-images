@@ -34,9 +34,9 @@ const modelData = async () => {
 */
 
 const dummyData = async () => {
-  //create 98 dummy models
+  //create 100 dummy models
   let keys = await list.listAllImages();
-  for (let i = 3; i <= 100; i++) {
+  for (let i = 1; i <= 100; i++) {
     randomIndex = Math.floor(Math.random() * Math.floor(keys.length));
     let filename = keys[randomIndex];
     let url = `https://sb-gallery1.s3-us-west-1.amazonaws.com/${filename}`;
