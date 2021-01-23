@@ -1,9 +1,6 @@
 const { Image } = require('../database/index.js');
-// load model for mongodb
-// load model for couchdb
 
 module.exports = {
-  mySql: {
     shoeImgs: {
       post: (shoeId, imgUrl) => {
         return Image.create({
@@ -32,13 +29,5 @@ module.exports = {
           }
         });
       }
-
     }
-  },
-  mongoDb: {
-
-  },
-  couchDb: {
-
-  }
 }
