@@ -18,6 +18,7 @@ const Gallery = (props) => {
     let shoeId = props.modelId
     axios.get(`/products/${shoeId}/gallery`)
       .then((images) => {
+        console.log('images from GET:', images)
         setImages(images.data);
         setRender(true);
       })
@@ -88,7 +89,7 @@ const Gallery = (props) => {
           <img
             className={styles.closeModal}
             onClick={closeModal}
-            src='https://sb-gallery.s3-us-west-1.amazonaws.com/cancel.svg'
+            src='https://sb-gallery1.s3-us-west-1.amazonaws.com/cancel.svg'
             height={30} width={30}
           />
           {/* <xButton className={styles.closeModal} click={closeModal}/> */}

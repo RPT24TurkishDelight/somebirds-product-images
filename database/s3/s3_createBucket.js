@@ -1,3 +1,5 @@
+//***** NOTE: THIS FILE IS NOT BEING USED CURRENTLY *****
+
 let variables = require('./env.js');
 // Load the AWS SDK for Node.js
 var AWS = require('aws-sdk');
@@ -10,7 +12,7 @@ s3 = new AWS.S3({apiVersion: '2006-03-01'});
 const createS3Bucket = () => {
   // Create the parameters for calling createBucket
     var bucketParams = {
-      Bucket : 'sb-gallery'
+      Bucket : 'sb-gallery1'
     };
     // call S3 to create the bucket
     s3.createBucket(bucketParams, function(err, data) {

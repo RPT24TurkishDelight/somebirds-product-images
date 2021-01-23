@@ -4,11 +4,11 @@
   "description": "Component that will hold and display images for our somebirds website.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --forceExit",
     "start": "nodemon ./server/server.js",
     "build": "webpack -w",
-    "uploadImage": "node ./database/s3/s3_upload.js sb-gallery $npm_config_file",
-    "db:seed": "mysql -h 54.153.5.233 -u student < ./database/createDB.sql && node ./database/createTables.js && node ./database/seed.js"
+    "uploadImage": "node ./database/s3/s3_upload.js sb-gallery1 $npm_config_file",
+    "db:seed": "mysql -u root < ./database/createDB.sql && node ./database/createTables.js && node ./database/seed.js"
   },
   "repository": {
     "type": "git",
@@ -38,7 +38,11 @@
     "@babel/preset-react": "^7.12.7",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
+    "jest": "^26.6.3",
     "nodemon": "^2.0.6",
-    "style-loader": "^2.0.0"
+    "style-loader": "^2.0.0",
+    "supertest": "^6.1.1",
+    "webpack": "^5.17.0",
+    "webpack-cli": "^4.4.0"
   }
 }

@@ -1,3 +1,5 @@
+// ****** NOTE: THIS FILE IS CURRENTLY NOT BEING USED
+
 var AWS = require("aws-sdk");
 
 AWS.config.getCredentials(function(err) {
