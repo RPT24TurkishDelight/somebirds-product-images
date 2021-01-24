@@ -38,10 +38,10 @@ npm run test
 ```
 
 ## Related Projects
-https://github.com/RPT24TurkishDelight/somebirdsColorAndSizeSelection
-https://github.com/RPT24TurkishDelight/somebirds-product-accordion
-https://github.com/RPT24TurkishDelight/somebirdsReviews
-https://github.com/RPT24TurkishDelight/somebirds-product-images-proxy
+- https://github.com/RPT24TurkishDelight/somebirdsColorAndSizeSelection
+- https://github.com/RPT24TurkishDelight/somebirds-product-accordion
+- https://github.com/RPT24TurkishDelight/somebirdsReviews
+- https://github.com/RPT24TurkishDelight/somebirds-product-images-proxy
 
 ## CRUD Operations
 ### Create (POST) - Add a new image
