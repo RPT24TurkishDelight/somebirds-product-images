@@ -11,7 +11,7 @@ const unsplash = createApi({
 const getImages = () => {
   return unsplash.photos.getRandom({
     query: 'shoes',
-    count: 5,
+    count: 1000,
   }).then(result => {
     if (result.errors) {
       console.log('error occurred: ', result.errors[0]);

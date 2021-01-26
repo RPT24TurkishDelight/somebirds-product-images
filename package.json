@@ -7,14 +7,14 @@
     "test": "jest --forceExit",
     "start": "nodemon ./server/server.js",
     "build": "webpack -w",
-    "uploadImage": "node ./database/s3/s3_upload.js sb-gallery1 $npm_config_file",
+    "uploadImages": "node ./database/cloudinary/uploadImages.js",
     "db:seed": "mysql -u root < ./database/createDB.sql && node ./database/createTables.js && node ./database/seed.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rpt24saltysnack/somebirds-product-images.git"
+    "url": "git+https://github.com/RPT24TurkishDelight/somebirds-product-images"
   },
-  "author": "GABRIEL GUTIERREZ",
+  "author": "GABRIEL GUTIERREZ & SUNIT MODY",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rpt24saltysnack/somebirds-product-images/issues"

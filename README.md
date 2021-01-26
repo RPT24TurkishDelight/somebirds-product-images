@@ -17,6 +17,34 @@ From within the root directory
 npm install
 ```
 
+- Add a cloudinaryKey.js file in the ./database/cloudinary folder.
+- Sign up for a cloudinary account and add the information below.
+- Make sure this file is gitignored.
+```
+// cloudinaryKey.js
+module.exports = {
+  cloud_name: 'name',
+  api_key: 'key',
+  api_secret: 'secret',
+  api_env_var: 'environment variable',
+};
+
+- Add a unsplashKey.js file in the ./database/unsplash folder.
+- Sign up for a unsplash account and add the information below.
+- Make sure this file is gitignored.
+```
+// unsplashKey.js
+module.exports = {
+  accessKey: 'access key',
+  secretKey: 'secret key'
+};
+```
+
+Upload 1000 images to cloudinary
+```
+npm run uploadImages
+```
+
 Seed the database
 ```
 npm run db:seed
