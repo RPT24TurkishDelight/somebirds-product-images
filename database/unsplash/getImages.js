@@ -7,11 +7,11 @@ const unsplash = createApi({
   fetch: nodeFetch,
 });
 
-// Gets photos from unsplash API
-const getImages = () => {
+Gets photos from unsplash API (max 30 at a time)
+const getThirtyImages = () => {
   return unsplash.photos.getRandom({
     query: 'shoes',
-    count: 1000,
+    count: 30,
   }).then(result => {
     if (result.errors) {
       console.log('error occurred: ', result.errors[0]);
@@ -21,7 +21,9 @@ const getImages = () => {
       const images = photos.map(photo => photo.urls.regular);
       return images;
     }
-  })
+  }).catch(err => {
+    console.log(`error getting images from unsplash: ${err}`)
+  });
 }
 
-module.exports = { getImages };
+module.exports = { getThirtyImages };

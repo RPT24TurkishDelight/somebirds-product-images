@@ -41,6 +41,7 @@ module.exports = {
 ```
 
 Upload 1000 images to cloudinary
+- Note: The unsplash API limits a max of 30 results per request and 50 requests per hour. (As of 2021 - in demo mode. Higher limits for production mode).
 ```
 npm run uploadImages
 ```

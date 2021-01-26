@@ -15,19 +15,21 @@ const uploadImg = (link) => {
   });
 }
 
+const maxImagesToUpload = 1000;
+
 // Gets image list from unsplash and uploads each to cloudinary
 const getAndUploadImages = async () => {
-  const links = await unsplash.getImages();
-  for (var i = 0; i < links.length; i++) {
-    let link = links[i];
-    try {
-      await uploadImg(link)
-    } catch(err) {
-      console.log(`error uploading img to cloudinary ${err}`);
+  for (var i = 1; i <= maxImagesToUpload; i += 30) {
+    var links = await unsplash.getThirtyImages();
+    for (var j = 0; j < links.length; j++) {
+      var link = links[j];
+      try {
+        await uploadImg(link)
+      } catch(err) {
+        console.error(`error uploading img to cloudinary ${err}`);
+      }
     }
   }
-}
+};
 
 getAndUploadImages();
-
-module.exports = { uploadImages };
