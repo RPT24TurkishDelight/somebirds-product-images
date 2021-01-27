@@ -20,7 +20,7 @@ const maxImagesToUpload = 1000;
 // Gets image list from unsplash and uploads each to cloudinary
 const getAndUploadImages = async () => {
   for (var i = 1; i <= maxImagesToUpload; i += 30) {
-    var links = await unsplash.getThirtyImages();
+    var links = await unsplash.getImages();
     for (var j = 0; j < links.length; j++) {
       var link = links[j];
       try {

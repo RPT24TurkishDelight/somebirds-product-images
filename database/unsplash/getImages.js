@@ -7,11 +7,14 @@ const unsplash = createApi({
   fetch: nodeFetch,
 });
 
-Gets photos from unsplash API (max 30 at a time)
-const getThirtyImages = () => {
+// How many images to get per request from unsplash (max 30)
+const imageCount = 30;
+
+// Gets photos from unsplash API (max 30 at a time)
+const getImages = () => {
   return unsplash.photos.getRandom({
     query: 'shoes',
-    count: 30,
+    count: imageCount,
   }).then(result => {
     if (result.errors) {
       console.log('error occurred: ', result.errors[0]);
@@ -26,4 +29,4 @@ const getThirtyImages = () => {
   });
 }
 
-module.exports = { getThirtyImages };
+module.exports = { getImages };
