@@ -17,6 +17,35 @@ From within the root directory
 npm install
 ```
 
+- Add a cloudinaryKey.js file in the ./database/cloudinary folder.
+- Sign up for a cloudinary account and add the information below.
+- Make sure this file is gitignored.
+```
+// cloudinaryKey.js
+module.exports = {
+  cloud_name: 'name',
+  api_key: 'key',
+  api_secret: 'secret',
+  api_env_var: 'environment variable',
+};
+
+- Add a unsplashKey.js file in the ./database/unsplash folder.
+- Sign up for a unsplash account and add the information below.
+- Make sure this file is gitignored.
+```
+// unsplashKey.js
+module.exports = {
+  accessKey: 'access key',
+  secretKey: 'secret key'
+};
+```
+
+Upload 1000 images to cloudinary
+- Note: The unsplash API limits a max of 30 results per request and 50 requests per hour. (As of 2021 - in demo mode. Higher limits for production mode).
+```
+npm run uploadImages
+```
+
 Seed the database
 ```
 npm run db:seed
@@ -38,10 +67,10 @@ npm run test
 ```
 
 ## Related Projects
-https://github.com/RPT24TurkishDelight/somebirdsColorAndSizeSelection
-https://github.com/RPT24TurkishDelight/somebirds-product-accordion
-https://github.com/RPT24TurkishDelight/somebirdsReviews
-https://github.com/RPT24TurkishDelight/somebirds-product-images-proxy
+- https://github.com/RPT24TurkishDelight/somebirdsColorAndSizeSelection
+- https://github.com/RPT24TurkishDelight/somebirds-product-accordion
+- https://github.com/RPT24TurkishDelight/somebirdsReviews
+- https://github.com/RPT24TurkishDelight/somebirds-product-images-proxy
 
 ## CRUD Operations
 ### Create (POST) - Add a new image

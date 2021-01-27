@@ -4,7 +4,7 @@
 const request = require('supertest');
 const app = require('../server/index.js');
 
-describe('Test CRUD API calls', () => {
+xdescribe('Test CRUD API calls', () => {
   test('It should create new image using POST method', async () => {
     const newImage = await request(app)
       .post('/products/1/gallery')
