@@ -21,7 +21,7 @@ const getImages = async () => {
   });
 }
 
-test('Should get images array from unsplash', () => {
+xtest('Should get images array from unsplash', () => {
 
   const resp = {
     response: [

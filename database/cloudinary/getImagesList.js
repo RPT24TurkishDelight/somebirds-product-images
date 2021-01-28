@@ -8,7 +8,7 @@ cloudinary.config({
 });
 
 // How many results per call (Max 500)
-const imgUrlsPerCall = 10;
+const imgUrlsPerCall = 500;
 
 const getImagesList = async () => {
   // Get first set of results
