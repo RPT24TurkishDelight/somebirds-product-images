@@ -1,4 +1,4 @@
-const { Image } = require('./index.js');
+const { Image } = require('../mySql/index.js');
 const list = require('./s3/s3_listObj.js');
 
 const dummyData = async () => {
