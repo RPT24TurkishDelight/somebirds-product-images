@@ -8,7 +8,8 @@
     "start": "nodemon ./server/server.js",
     "build": "webpack -w",
     "uploadImages": "node ./database/cloudinary/uploadImages.js",
-    "db:seed": "mysql -u root < ./database/createDB.sql && node ./database/createTables.js && node ./database/seed.js"
+    "db:seed": "mysql -u root < ./database/createDB.sql && node ./database/createTables.js && node ./database/seed.js",
+    "mongo:seed": "mongoimport --db images --collection images --type json --file ./database/test2.json"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,8 @@
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.14",
     "mysql2": "^2.2.5",
     "node-fetch": "^2.6.1",
     "react": "^16.14.0",
@@ -41,6 +44,7 @@
     "babel-loader": "^8.2.2",
     "cloudinary": "^1.23.0",
     "css-loader": "^5.0.1",
+    "csvtojson": "^2.0.10",
     "jest": "^26.6.3",
     "nodemon": "^2.0.6",
     "style-loader": "^2.0.0",

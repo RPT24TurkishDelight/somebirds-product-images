@@ -1,7 +1,8 @@
 const utils = require('./utils.js')
 
-// load image from whatever DB (Mongo or Maria)
+// load image/model from database (Mongo or Maria)
 //const { Image } = require('./mySql/index.js');
+const Image = require('./mongodb/index.js')
 
 // load function to get list of images from cloudinary
 const cloudinary = require('./cloudinary/getImagesList.js');
@@ -10,41 +11,63 @@ const cloudinary = require('./cloudinary/getImagesList.js');
 const seedDb = async () => {
   // Get image array
   let imgs = await cloudinary.getImagesList();
-
+  let imageId = 1;
   // 10000 loops of 1000 shoes for 10MM
-  for (var i = 0; i <= 9999; i++) {
+  for (var i = 0; i <= 199; i++) {
     let shoes = [];
     // create a set of 1000 shoe records
     for (var j = 1; j <= 1000; j++) {
       let shoe = {}
       let modelId = (i * 1000) + j;
+      shoe.modelId = modelId;
 
       // How many images for this shoe? 4-8
       let numberOfImages = utils.randomInt(4, 8)
 
-      let imageUrls = [];
+      let urls = [];
       // Pick 4-8 random images from images array
       while (numberOfImages > 0) {
-        imageUrls.push(utils.randomImg(imgs))
+        let image = {};
+        image.id = imageId;
+        imageId ++;
+        image.imageUrl = [];
+        image.imageUrl.push(utils.randomImg(imgs))
+        urls.push(image);
         numberOfImages --;
       }
 
-      shoe.modelId = modelId;
-      shoe.imageUrl = imageUrls;
+      shoe.urls = urls;
 
       shoes.push(shoe);
     }
     // bulk insert shoes into the db
-    console.log(shoes);
+    await Image.insertMany(shoes)
+      // .then(() => {
+      //   console.log('data inserted');
+      // })
+      // .catch((err) => {
+      //   console.log(`error inserting data: ${err}`);
+      // })
     // reset shoes to null
     shoes = null;
   }
 
+  console.timeEnd('seed');
+
 }
+
+console.time('seed');
 
 seedDb();
 
+
+
 module.exports = { seedDb };
+
+
+
+
+
 
 /*
 Example array of objects for MongoDB + Mongoose
@@ -53,6 +76,12 @@ Example array of objects for MongoDB + Mongoose
   { modelId: 2, imageUrl: ['url1', 'url2', 'url3', 'url4']},
   { modelId: 3, imageUrl: ['url1', 'url2']}
 ]
+
+shoe: {
+  modelId: Number,
+  urls: [{ id: Number, imageUrl: [String] }, { id: Number, imageUrl: [String] }],
+}
+
 
 MariaDB + Sequelize bulk create:
 
