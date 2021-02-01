@@ -3,7 +3,9 @@ const cloudinary = require('./cloudinary/getImagesList.js');
 const utils = require('./utils.js')
 
 const dataGenJSON = async (numberOfEntries, fileName) => {
-  if (typeof numberOfEntries !== number || typeof fileName !== string) {
+  // console.time('createJSON');
+
+  if (typeof numberOfEntries !== 'number' || typeof fileName !== 'string') {
     return 'Please enter arguments as number and string ending in .json';
   }
 
@@ -38,6 +40,8 @@ const dataGenJSON = async (numberOfEntries, fileName) => {
     shoeImageStream.write(JSON.stringify(shoe) + "\n");
   }
   shoeImageStream.end();
+
+  // console.timeEnd('createJSON');
 }
 
-dataGen();
+dataGenJSON(10000, 'test.json');
