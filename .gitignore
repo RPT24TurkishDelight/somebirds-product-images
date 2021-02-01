@@ -10,3 +10,5 @@ database/images
 aws/
 unsplashKey.js
 cloudinaryKey.js
+*.json
+*.csv
