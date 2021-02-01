@@ -46,12 +46,6 @@ Upload 1000 images to cloudinary
 npm run uploadImages
 ```
 
-Create a JSON file if using MongoDB
-- Note: This step can take up to 5 minutes.
-```
-npm run create:json
-```
-
 Seed the database
 ```
 npm run db:seed
