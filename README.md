@@ -46,9 +46,25 @@ Upload 1000 images to cloudinary
 npm run uploadImages
 ```
 
-Seed the database
+If using PostgreSQL:
+- Install PostgreSQL if not already installed
+- Create a user named "postgres" if doesn't already exist
+- Give user "postgres" superuser permissions if not already done:
 ```
-npm run db:seed
+=# CREATE USER postgres;
+=# ALTER USER postgres WITH superuser;
+```
+
+create CSV file of data
+```
+npm run createCSV
+```
+
+Note: Update the absolute file path of the .csv file in database/psql/seedDB.sql
+
+Create database, table and seed the table
+```
+npm run psql:seed
 ```
 
 Start webpack
