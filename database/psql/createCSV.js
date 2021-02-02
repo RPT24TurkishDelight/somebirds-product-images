@@ -3,6 +3,7 @@ const cloudinary = require('../cloudinary/getImagesList.js');
 const utils = require('../utils.js');
 
 const createImagesCSV = async (numberOfEntries, fileName, encoding) => {
+  console.time('seed');
   // Get image array from Cloudinary API
   let imgs = await cloudinary.getImagesList();
 
@@ -52,6 +53,7 @@ const createImagesCSV = async (numberOfEntries, fileName, encoding) => {
   }
 
   write();
+  console.timeEnd('seed');
 }
 
-createImagesCSV(10, 'test.csv', 'utf-8')
+createImagesCSV(1000, './database/psql/test.csv', 'utf-8')
