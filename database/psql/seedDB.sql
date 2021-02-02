@@ -1,1 +1,1 @@
-\copy "Images"("modelId", "imageUrl") FROM '/Users/sunitmody/Documents/RPT-24/rpt24-sdc/somebirds-product-images/database/psql/test.csv' DELIMITER ',' CSV HEADER;
+\copy "Images"("modelId", "imageUrl") FROM '/Users/sunitmody/Documents/RPT-24/rpt24-sdc/somebirds-product-images/database/psql/images.csv' DELIMITER ',' CSV HEADER;
