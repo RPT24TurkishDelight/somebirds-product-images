@@ -8,6 +8,8 @@
     "start": "nodemon ./server/server.js",
     "build": "webpack -w",
     "uploadImages": "node ./database/cloudinary/uploadImages.js",
+    "create:json": "node ./database/mongodb/createJSON.js",
+    "mongo:seed": "time mongoimport --db images --collection images --type json --file ./database/mongodb/images.json",
     "db:seed": "mysql -u root < ./database/createDB.sql && node ./database/createTables.js && node ./database/seed.js"
   },
   "repository": {
