@@ -7,7 +7,7 @@ const xButton = (props) => {
   <img
     className={props.className}
     onClick={props.click}
-    src='https://sb-gallery.s3-us-west-1.amazonaws.com/cancel.svg'
+    src='https://sb-gallery1.s3-us-west-1.amazonaws.com/cancel.svg'
     height={30} width={30}
   />
  );

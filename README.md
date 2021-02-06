@@ -116,12 +116,10 @@ Note: The shoe id is provided as a request paramters through the endpoint
 ```
 Response example:
 [
-    "https://sb-gallery1.s3-us-west-1.amazonaws.com/undefined",
-    "https://sb-gallery1.s3-us-west-1.amazonaws.com/undefined",
-    "https://sb-gallery1.s3-us-west-1.amazonaws.com/undefined",
-    "https://sb-gallery1.s3-us-west-1.amazonaws.com/undefined",
-    "https://sb-gallery1.s3-us-west-1.amazonaws.com/undefined",
-    "https://sb-gallery1.s3-us-west-1.amazonaws.com/undefined"
+    "https://res.cloudinary.com/some-birds-images/image/upload/v1611641830/dreftkynpuxjqcjgski4.jpg",
+    "https://res.cloudinary.com/some-birds-images/image/upload/v1611641843/i0w2szd7uc7yxzxcryd6.jpg",
+    "https://res.cloudinary.com/some-birds-images/image/upload/v1611641842/w2kxko0drgzghe5kfwun.jpg",
+    "https://res.cloudinary.com/some-birds-images/image/upload/v1611641823/bo8by9ycyeynhuqbqc5h.jpg"
 ]
 ```
 - If successful, 200 status code.
