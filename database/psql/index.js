@@ -29,8 +29,8 @@ const Image = sequelize.define('Image', {
   timestamps: false
 });
 
-// Creates the table, dropping it first if it already existed
-Image.sync({ force: true })
+// Checks what is the current state of the table in the database (which columns it has, what are their data types, etc), and then performs the necessary changes in the table to make it match the model.
+Image.sync({ alter: true })
   .then(() => {
     console.log('The table for the Image model was just (re)created!');
   })

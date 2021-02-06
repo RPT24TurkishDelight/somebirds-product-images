@@ -1,4 +1,4 @@
-const { Image } = require('../database/mySql/index.js');
+const { Image } = require('../database/psql/index.js');
 
 module.exports = {
     shoeImgs: {
