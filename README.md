@@ -82,6 +82,13 @@ npm start
 npm run test
 ```
 
+## To view the service locally
+```
+http://localhost:3004/?prod=1
+
+Replace the "1" with any number 1 - 10000000 (10 Million)
+```
+
 ## Related Projects
 - https://github.com/RPT24TurkishDelight/somebirdsColorAndSizeSelection
 - https://github.com/RPT24TurkishDelight/somebirds-product-accordion
