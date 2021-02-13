@@ -53,8 +53,8 @@ const createImagesCSV = async (numberOfEntries, fileName, encoding) => {
   }
 
   write();
-  console.timeEnd('seed');
 }
 
-console.time('seed');
-createImagesCSV(10000000, './database/psql/images.csv', 'utf-8')
+createImagesCSV(10000000, './database/psql/images.csv', 'utf-8');
+
+module.exports = { createImagesCSV };
