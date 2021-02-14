@@ -46,9 +46,25 @@ Upload 1000 images to cloudinary
 npm run uploadImages
 ```
 
-Seed the database
+If using PostgreSQL:
+- Install PostgreSQL if not already installed
+- Create a user named "postgres" if doesn't already exist
+- Give user "postgres" superuser permissions if not already done:
 ```
-npm run db:seed
+=# CREATE USER postgres;
+=# ALTER USER postgres WITH superuser;
+```
+
+create CSV file of data
+```
+npm run createCSV
+```
+
+Note: Update the absolute file path of the .csv file in database/psql/seedDB.sql
+
+Create database, table and seed the table
+```
+npm run psql:seed
 ```
 
 Start webpack
@@ -64,6 +80,13 @@ npm start
 ## Testing
 ```
 npm run test
+```
+
+## To view the service locally
+```
+http://localhost:3004/?prod=1
+
+Replace the "1" with any number 1 - 10000000 (10 Million)
 ```
 
 ## Related Projects
@@ -100,12 +123,10 @@ Note: The shoe id is provided as a request paramters through the endpoint
 ```
 Response example:
 [
-    "https://sb-gallery1.s3-us-west-1.amazonaws.com/undefined",
-    "https://sb-gallery1.s3-us-west-1.amazonaws.com/undefined",
-    "https://sb-gallery1.s3-us-west-1.amazonaws.com/undefined",
-    "https://sb-gallery1.s3-us-west-1.amazonaws.com/undefined",
-    "https://sb-gallery1.s3-us-west-1.amazonaws.com/undefined",
-    "https://sb-gallery1.s3-us-west-1.amazonaws.com/undefined"
+    "https://res.cloudinary.com/some-birds-images/image/upload/v1611641830/dreftkynpuxjqcjgski4.jpg",
+    "https://res.cloudinary.com/some-birds-images/image/upload/v1611641843/i0w2szd7uc7yxzxcryd6.jpg",
+    "https://res.cloudinary.com/some-birds-images/image/upload/v1611641842/w2kxko0drgzghe5kfwun.jpg",
+    "https://res.cloudinary.com/some-birds-images/image/upload/v1611641823/bo8by9ycyeynhuqbqc5h.jpg"
 ]
 ```
 - If successful, 200 status code.

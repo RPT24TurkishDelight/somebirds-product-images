@@ -40,7 +40,7 @@ const seedDb = async () => {
 
 
 
-test('Should return formatted shoe and images record from input images array', () => {
+xtest('Should return formatted shoe and images record from input images array', () => {
 
   const fakeImgArr = [
     'https://res.cloudinary.com/some-birds-images/image/upload/v1611641849/idgdyuj36r6t0ckjwvnn.jpg'

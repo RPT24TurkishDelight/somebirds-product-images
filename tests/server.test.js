@@ -2,7 +2,7 @@
 
 // We will use supertest to test HTTP requests/responses
 const request = require('supertest');
-const app = require('../server/index.js');
+//const app = require('../server/index.js');
 
 xdescribe('Test CRUD API calls', () => {
   test('It should create new image using POST method', async () => {
