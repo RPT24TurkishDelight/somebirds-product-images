@@ -3,7 +3,7 @@
 > A replica of the Allbirds product detail page.
 - https://www.allbirds.com/
 
-Highlighted Technologies: React, Express, MySQL, Sequelize, Jest, Webpack, AWS S3 + EC2
+Highlighted Technologies: React, Express, PostgreSql, Sequelize, Jest, Webpack, AWS S3 + EC2
 
 ## Table of Contents
 1. [Getting Started](#Getting)
@@ -28,6 +28,7 @@ module.exports = {
   api_secret: 'secret',
   api_env_var: 'environment variable',
 };
+```
 
 - Add a unsplashKey.js file in the ./database/unsplash folder.
 - Sign up for a unsplash account and add the information below.
