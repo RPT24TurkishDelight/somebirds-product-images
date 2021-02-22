@@ -19,17 +19,3 @@ app.put('/products/:shoeId/gallery', controller.productImages.put)
 app.delete('/products/:shoeId/gallery', controller.productImages.delete)
 
 module.exports = app;
-
-
-// Read
-// app.get('/products/:shoeId/gallery', (req, res) => {
-//   let { shoeId } = req.params;
-//   controller.get.productImages(shoeId)
-//     .then((data) => {
-//       res.send(data);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.sendStatus(404);
-//     });
-// });
