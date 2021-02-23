@@ -16,9 +16,10 @@ Highlighted Technologies:
 ## Table of Contents
 1. [Getting Started](#getting)
 2. [Setting up New-Relic](#relic)
-3. [Testing](#testing)
-4. [Related Projects](#related)
-5. [CRUD Operations](#crud)
+3. [Stress Testing](#stress)
+4. [Testing](#testing)
+5. [Related Projects](#related)
+6. [CRUD Operations](#crud)
 
 <a name="getting"/>
 
@@ -95,6 +96,21 @@ Follow the directions here:
 https://docs.newrelic.com/docs/agents/nodejs-agent/installation-configuration/install-nodejs-agent
 
 Make sure to gitignore newrelic.js
+
+<a name="stress"/>
+
+## Stress Testing
+Install k6
+```
+brew install k6
+```
+Modify the vus and duration values as needed in the stressTestGet.js and stressTestPost.js files.
+Then run:
+```
+k6 run stressTestGet.js
+or
+k6 run stressTestPost.js
+```
 
 <a name="testing"/>
 
