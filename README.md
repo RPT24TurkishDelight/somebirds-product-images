@@ -79,6 +79,7 @@ Create database, table and seed the table
 ```
 npm run psql:seed
 ```
+- CLI command: "psql imagegallery postgres" to log into postgreSql
 
 Start webpack
 ```

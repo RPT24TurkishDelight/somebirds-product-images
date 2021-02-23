@@ -13,3 +13,4 @@ cloudinaryKey.js
 *.json
 *.csv
 newrelic.js
+newrelic_agent.log
