@@ -3,7 +3,7 @@
 > A replica of the Allbirds product detail page.
 - https://www.allbirds.com/
 
-Highlighted Technologies: React, Express, PostgreSql, Sequelize, Jest, Webpack, AWS S3 + EC2
+Highlighted Technologies: React (hooks), Express, PostgreSql, Sequelize, Jest, Webpack, AWS S3 + EC2, New Relic
 
 ## Table of Contents
 1. [Getting Started](#Getting)
