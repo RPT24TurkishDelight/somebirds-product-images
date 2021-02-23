@@ -12,3 +12,4 @@ unsplashKey.js
 cloudinaryKey.js
 *.json
 *.csv
+newrelic.js

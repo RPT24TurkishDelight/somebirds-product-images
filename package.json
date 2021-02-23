@@ -29,6 +29,7 @@
     "mongodb": "^3.6.3",
     "mongoose": "^5.11.14",
     "mysql2": "^2.2.5",
+    "newrelic": "^7.1.1",
     "node-fetch": "^2.6.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
