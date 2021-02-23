@@ -3,13 +3,24 @@
 > A replica of the Allbirds product detail page.
 - https://www.allbirds.com/
 
-Highlighted Technologies: React (hooks), Express, PostgreSql, Sequelize, Jest, Webpack, AWS S3 + EC2, New Relic
+Highlighted Technologies:
+- React (hooks)
+- Express, PostgreSql
+- Sequelize
+- Jest
+- Webpack
+- AWS S3 + EC2
+- New Relic
+- httperf (web server performance)
 
 ## Table of Contents
-1. [Getting Started](#Getting)
-2. [Testing](#Testing)
-3. [Related Projects](#Related)
-4. [CRUD Operations](#CRUD)
+1. [Getting Started](#getting)
+2. [Setting up New-Relic](#relic)
+3. [Testing](#testing)
+4. [Related Projects](#related)
+5. [CRUD Operations](#crud)
+
+<a name="getting"/>
 
 ## Getting Started
 From within the root directory
@@ -77,6 +88,15 @@ Start express server
 ```
 npm start
 ```
+<a name="relic"/>
+
+## Setting up New-Relic
+Follow the directions here:
+https://docs.newrelic.com/docs/agents/nodejs-agent/installation-configuration/install-nodejs-agent
+
+Make sure to gitignore newrelic.js
+
+<a name="testing"/>
 
 ## Testing
 ```

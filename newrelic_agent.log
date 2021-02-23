@@ -1,0 +1,10 @@
+{"v":0,"level":30,"name":"newrelic","hostname":"Sunits-MacBook-Pro.local","pid":69147,"time":"2021-02-23T03:03:33.588Z","msg":"Using New Relic for Node.js. Agent version: 7.1.1; Node version: v14.15.3."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Sunits-MacBook-Pro.local","pid":69147,"time":"2021-02-23T03:03:33.817Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Sunits-MacBook-Pro.local","pid":69147,"time":"2021-02-23T03:03:34.548Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Sunits-MacBook-Pro.local","pid":69147,"time":"2021-02-23T03:03:34.548Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Sunits-MacBook-Pro.local","pid":69147,"time":"2021-02-23T03:03:37.123Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Sunits-MacBook-Pro.local","pid":69147,"time":"2021-02-23T03:03:37.124Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID BTg93livo4nhAC7U-S976xNgNHDcAAgBAAAnIQEAAQ4bAgQve-sRAwAFNy4xLjEAGFN1bml0cy1NYWNCb29rLVByby5sb2NhbAAWc29tZWJpcmRzUHJvZHVjdEltYWdlcw.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Sunits-MacBook-Pro.local","pid":69147,"time":"2021-02-23T03:03:37.124Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/3069177/applications/796650257","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Sunits-MacBook-Pro.local","pid":69147,"time":"2021-02-23T03:03:37.125Z","msg":"Valid event_harvest_config received. Updating harvest cycles. {\"report_period_ms\":5000,\"harvest_limits\":{\"error_event_data\":8,\"analytic_event_data\":833,\"custom_event_data\":83}}"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Sunits-MacBook-Pro.local","pid":69147,"time":"2021-02-23T03:03:37.127Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Sunits-MacBook-Pro.local","pid":69147,"time":"2021-02-23T03:03:38.130Z","msg":"Starting initial 1000ms harvest."}
