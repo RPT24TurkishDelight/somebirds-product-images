@@ -80,6 +80,9 @@ Create database, table and seed the table
 npm run psql:seed
 ```
 - CLI command: "psql imagegallery postgres" to log into postgreSql
+- Note: To improve read time, create an index (modelId_index) on modelId column
+- In PSQL enter: CREATE INDEX modelId_index ON "Images" ("modelId");
+
 
 Start webpack
 ```
@@ -108,9 +111,9 @@ brew install k6
 Modify the vus and duration values as needed in the stressTestGet.js and stressTestPost.js files.
 Then run:
 ```
-k6 run stressTestGet.js
+k6 run k6/stressTestGet.js
 or
-k6 run stressTestPost.js
+k6 run k6/stressTestPost.js
 ```
 
 <a name="testing"/>
