@@ -5,13 +5,14 @@
 
 Highlighted Technologies:
 - React (hooks)
-- Express, PostgreSql
+- Express
+- PostgreSql
 - Sequelize
 - Jest
 - Webpack
 - AWS S3 + EC2
-- New Relic
-- httperf (web server performance)
+- New Relic (performance metrics)
+- K6 (load testing)
 
 ## Table of Contents
 1. [Getting Started](#getting)
@@ -20,6 +21,9 @@ Highlighted Technologies:
 4. [Testing](#testing)
 5. [Related Projects](#related)
 6. [CRUD Operations](#crud)
+7. [Amazon EC2 Instance Creation](#ec2)
+8. [EC2 Environment Setup](#env)
+9. [EC2 Service Install Using Git](#service)
 
 <a name="getting"/>
 
@@ -202,3 +206,55 @@ Request body example:
 #### Output
 - If successful, 200 status code.
 - If error in db query, 400 status code.
+
+<a name="ec2"/>
+
+## Amazon EC2 Instance Creation
+
+- Go to Amazon EC2 website and launch an instnace
+- Select Ubuntu Server 18.04 LTS (HVM), SSD Volume Type (or you can do Amazon Linux but the installation steps below may not work)
+- T2 micro (free tier)
+- In "Add Storage" section, increase size to 30gb (free up to 30gb)
+- In "Configure Security Group" section, update security-group-name
+- After you click "Launch", use the drop-down and select "Create a new key pair" and give it a key pair name. Then click "download key pair"
+- Click "Launch Instance"
+- Create a directory and save the pem file downloaded earlier
+- Make sure to gitignore "*.pem"
+- In the instances list, change the name
+- Click "connect" and under SSH client the instructions are given on how to connect to the instance
+- Open a terminal and go to the directory with the .pem file and follow the instructions mentioned above to connect
+
+<a name="env"/>
+
+## EC2 Environment Setup
+
+- Install Node on Ubuntu EC2
+  - https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html
+  - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+  - . ~/.nvm/nvm.sh
+  - nvm install node
+  - node -e "console.log('Running Node.js ' + process.version)"
+
+- Install Git
+  - Install git in your EC2 instance:
+    sudo apt-get install git
+  - Check git version:
+    git version
+
+- Install PSQL
+  - https://medium.com/ruralscript/install-and-setuppostgresql-on-ubuntu-amazon-ec2-5d1af79b4fca
+  - Install the package:
+    sudo apt install postgresql postgresql-contrib
+
+    (Note: The installation creates a user account postgres that is associated with the default Postgres role. We will log into this account to use Postgres.)
+  - Validate the service:
+    sudo service postgresql status
+  - Connect to Postgres Server
+    sudo -u postgres psql
+  - \q - Terminate from session using
+  - \l - List databases
+
+<a name="service"/>
+
+## EC2 Service Install Using Git
+
