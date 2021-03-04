@@ -12,7 +12,9 @@ Highlighted Technologies:
 - Webpack
 - AWS S3 + EC2
 - New Relic (performance metrics)
-- K6 (load testing)
+- K6 (load testing local)
+- Loader.io (load testing cloud)
+- NGINX (load balancer)
 
 ## Table of Contents
 1. [Getting Started](#getting)
@@ -23,7 +25,7 @@ Highlighted Technologies:
 6. [CRUD Operations](#crud)
 7. [Amazon EC2 Instance Creation](#ec2)
 8. [EC2 Environment Setup](#env)
-9. [EC2 Service Install and Database Setup](#service)
+9. [EC2 Service and Database Setup](#service)
 
 <a name="getting"/>
 
@@ -264,7 +266,7 @@ General Tips: https://ubuntu.com/server/docs
 
 <a name="service"/>
 
-## EC2 Service Install and Database Setup
+## EC2 Service and Database Setup
 
 - Create a new EC2 instance
 - git clone https://github.com/nameOfRepo.git
@@ -276,6 +278,7 @@ General Tips: https://ubuntu.com/server/docs
 - You probably don't need to upload 1000 images to cloudinary since it has most likely already been done
 - Create the csv file (run the npm script for this)
 - Absolute file path will likely be: /home/ubuntu/somebirds-product-images/database/psql/images.csv
+- In server.js comment out // require('newrelic');
 
 ### Setting up connection to remote PSQL server and Seeding it
 - In your EC2 database instance with PostgreSQL running:
@@ -313,6 +316,11 @@ const sequelize = new Sequelize('imagegallery', 'postgres', 'your_password', {
 });
 ```
 - Run the npm script to seed
+
+### Running the service
+- npm start
+- npm run build
+- In the browser address bar: <HOST NAME>:3004/?prod=2
 
 ### Extras:
 - How do I leave Node.js server on EC2 running forever?
