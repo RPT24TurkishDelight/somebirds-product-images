@@ -23,7 +23,7 @@ Highlighted Technologies:
 6. [CRUD Operations](#crud)
 7. [Amazon EC2 Instance Creation](#ec2)
 8. [EC2 Environment Setup](#env)
-9. [EC2 Service Install Using Git](#service)
+9. [EC2 Service Install and Database Setup](#service)
 
 <a name="getting"/>
 
@@ -223,10 +223,13 @@ Request body example:
 - In the instances list, change the name
 - Click "connect" and under SSH client the instructions are given on how to connect to the instance
 - Open a terminal and go to the directory with the .pem file and follow the instructions mentioned above to connect
+- Go to security groups and click on your instance, edit inbound rules and then "add rule"
+  - Type: All Traffic, Source: Anywhere
 
 <a name="env"/>
 
 ## EC2 Environment Setup
+General Tips: https://ubuntu.com/server/docs
 
 - Install Node on Ubuntu EC2
   - https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html
@@ -253,8 +256,60 @@ Request body example:
     sudo -u postgres psql
   - \q - Terminate from session using
   - \l - List databases
+  - \c <db name> - Connect to a database
+  - \dt - List tables
+  - \d <table name> - Table data
+  - select * from "Images" where "modelId" = 1; - Example of a query
 
 <a name="service"/>
 
-## EC2 Service Install Using Git
+## EC2 Service Install and Database Setup
 
+- git clone https://github.com/nameOfRepo.git
+- Essentially go through the "Getting started" section above with the comments mentioned below:
+- Note: Use VIM to make changes in files (https://opensource.com/article/19/3/getting-started-vim)
+  - vim <fileName> (to open a file)
+  - :insert (to go into insert mode - will be in insert mode by default initially)
+  - :wq (to save a file and quit vim)
+- You probably don't need to upload 1000 images to cloudinary since it has most likely already been done
+- Create the csv file
+- Absolute file path should likely be: /home/ubuntu/somebirds-product-images/database/psql/images.csv
+
+### Setting up connection to remote PSQL server and Seeding it
+- In your EC2 database instance with PostgreSQL running:
+  - Set a password for the postgres user and use MD5 authentication with the postgres user:
+    - $ sudo -u postgres psql template1
+    - ALTER USER postgres with encrypted password 'your_password';
+    - sudo systemctl restart postgresql.service
+
+  - sudo vim /etc/postgresql/10/main/pg_hba.conf
+    - To allow connections from absolutely any address with password authentication add this line at the very bottom:
+      - host    all             all             0.0.0.0/0               md5
+    - Edit the user postgres :
+      - local   all         postgres                          md5
+
+  - sudo vim /etc/postgresql/10/main/postgresql.conf
+  (Note: the "10" might be a differnet version. Verify the version)
+    - Under connections and authentication change listen_addresses = '*'
+      - (Note: make sure the above line is not commented out with a #)
+
+  - Restart the PostgreSQL service to initialize the new configuration
+    - $ sudo systemctl restart postgresql.service
+
+- In your EC2 service package.json modify "psql:seed"
+  - "psql:seed": "psql -h 54.215.213.219 -p 5432 -U postgres < ./database/psql/createDB.sql && node ./database/psql/index.js && time psql -h 54.215.213.219 -p 5432 -U postgres imagegallery < ./database/psql/seedDB.sql"
+  - REMOTE HOST: Your db EC2 instance ip address (e.g. 54.215.213.219)
+  - REMOTE PORT: Your db EC2 (by default: 5432)
+
+- In your EC2 service ./database/psql/index.js
+  - Modify the database connection host to the db EC2 instance ip address mentioned above and port if differnet from 5432
+```
+const sequelize = new Sequelize('imagegallery', 'postgres', 'your_password', {
+  host: <REMOTE HOST>,
+  dialect: 'postgres'
+});
+```
+
+### Extras:
+- How do I leave Node.js server on EC2 running forever?
+  - https://stackoverflow.com/questions/26245942/how-do-i-leave-node-js-server-on-ec2-running-forever
