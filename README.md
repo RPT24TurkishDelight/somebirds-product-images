@@ -232,20 +232,20 @@ Request body example:
 <a name="env"/>
 
 ## EC2 Environment Setup
-General Tips: https://ubuntu.com/server/docs
+General Info: https://ubuntu.com/server/docs
 
 - Install Node on Ubuntu EC2
   - https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html
-  - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-  - . ~/.nvm/nvm.sh
-  - nvm install node
-  - node -e "console.log('Running Node.js ' + process.version)"
+    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+    - . ~/.nvm/nvm.sh
+    - nvm install node
+    - node -e "console.log('Running Node.js ' + process.version)"
 
 - Install Git
   - Install git in your EC2 instance:
-    sudo apt-get install git
+    - sudo apt-get install git
   - Check git version:
-    git version
+    - git version
 
 - Install PSQL
   - General guide: https://medium.com/ruralscript/install-and-setuppostgresql-on-ubuntu-amazon-ec2-5d1af79b4fca
@@ -257,11 +257,11 @@ General Tips: https://ubuntu.com/server/docs
     sudo service postgresql status
   - Connect to Postgres Server
     sudo -u postgres psql
-  - \q - Terminate from session using
+  - \q - Terminate from session
   - \l - List databases
-  - \c <db name> - Connect to a database
+  - \c [db name] - Connect to a database
   - \dt - List tables
-  - \d <table name> - Table data
+  - \d [table name] - Table data
   - select * from "Images" where "modelId" = 1; - Example of a query
 
 <a name="service"/>
@@ -272,13 +272,16 @@ General Tips: https://ubuntu.com/server/docs
 - git clone https://github.com/nameOfRepo.git
 - Essentially go through the "Getting started" section above with the changes mentioned below:
 - Note: Use VIM to make changes in files (https://opensource.com/article/19/3/getting-started-vim)
-  - vim <fileName> (to open a file)
+  - vim [file name] (to open a file)
   - i (to go into insert mode)
   - :wq (to save a file and quit vim)
 - You probably don't need to upload 1000 images to cloudinary since it has most likely already been done
 - Create the csv file (run the npm script for this)
-- Absolute file path will likely be: /home/ubuntu/somebirds-product-images/database/psql/images.csv
-- In server.js comment out // require('newrelic');
+- Absolute file path will likely be: "/home/ubuntu/somebirds-product-images/database/psql/images.csv"
+- In server.js comment out (only in the services but not in proxy)
+```
+// require('newrelic');
+```
 
 ### Setting up connection to remote PSQL server and Seeding it
 - In your EC2 database instance with PostgreSQL running:
@@ -303,12 +306,12 @@ General Tips: https://ubuntu.com/server/docs
 
 - (REQUIRED SPECIFICALLY AND ONLY FOR INITIAL DB SEEDING)
   - In your EC2 service instance, in package.json modify "psql:seed" to:
-  - "psql:seed": "psql -h <REMOTE HOST> -p <REMOTE PORT> -U postgres < ./database/psql/createDB.sql && node ./database/psql/index.js && time psql -h <REMOTE HOST> -p <REMOTE PORT> -U postgres imagegallery < ./database/psql/seedDB.sql"
+  - "psql:seed": "psql -h [REMOTE HOST] -p [REMOTE PORT] -U postgres < ./database/psql/createDB.sql && node ./database/psql/index.js && time psql -h [REMOTE HOST] -p [REMOTE PORT] -U postgres imagegallery < ./database/psql/seedDB.sql"
   - REMOTE HOST: Your db EC2 instance IP4 address (e.g. 54.215.213.219)
   - REMOTE PORT: Your db EC2 (by default: 5432)
 
-- In your EC2 service instance, in ./database/psql/index.js
-  - Modify the database connection host to the db EC2 instance ip address mentioned above and port if differnet from 5432
+- In your EC2 service instance, in ./database/psql/index.js :
+  - Modify the database connection host to the db EC2 instance ip address mentioned above, add password.
 ```
 const sequelize = new Sequelize('imagegallery', 'postgres', 'your_password', {
   host: <REMOTE HOST>,
@@ -320,7 +323,7 @@ const sequelize = new Sequelize('imagegallery', 'postgres', 'your_password', {
 ### Running the service
 - npm start
 - npm run build
-- In the browser address bar: <HOST NAME>:3004/?prod=2
+- In the browser address bar: [HOST NAME]:3004/?prod=2
 
 ### Extras:
 - How do I leave Node.js server on EC2 running forever?
