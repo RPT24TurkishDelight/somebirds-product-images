@@ -9,7 +9,7 @@
     "build": "webpack -w",
     "uploadImages": "node ./database/cloudinary/uploadImages.js",
     "createCSV": "node ./database/psql/createCSV.js",
-    "psql:seed": "psql -U postgres < ./database/psql/createDB.sql && node ./database/psql/index.js && time psql -U postgres imagegallery < ./database/psql/seedDB.sql"
+    "psql:seed": "psql -h 54.215.213.219 -p 5432 -U postgres < ./database/psql/createDB.sql && node ./database/psql/index.js && time psql -h 54.215.213.219 -p 5432 -U postgres imagegallery < ./database/psql/seedDB.sql"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "aws-sdk": "^2.821.0",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
     "express": "^4.17.1",
     "mongodb": "^3.6.3",
     "mongoose": "^5.11.14",

@@ -1,9 +1,9 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
 // Connect to database
-const sequelize = new Sequelize('imagegallery', 'postgres', '', {
-  host: 'localhost',
-  dialect: 'postgres'
+const sequelize = new Sequelize('imagegallery', 'postgres', 'password', {
+	host: '54.241.31.110',
+	dialect: 'postgres'
 });
 
 // Test connection
