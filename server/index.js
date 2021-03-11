@@ -1,9 +1,11 @@
+const compression = require('compression');
 const express = require('express');
 const app = express();
 const controller = require('../controller/index.js');
 const path = require('path');
 
-app.use(express.json())
+app.use(express.json());
+app.use(compression());
 app.use(express.static('public'));
 
 // Create
